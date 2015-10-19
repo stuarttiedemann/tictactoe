@@ -1,0 +1,103 @@
+.game-wrapper{
+	width: 800px;
+	height:800px;
+	position: relative;
+	background-color: black;
+	padding-top:50px;
+}
+.squares-wrapper{
+
+	width: 600px;
+	height:600px;
+	position: relative;
+	background-color: white;
+	margin:auto;
+	margin-top:50px;
+}
+#start-game{
+	position: absolute;
+	top:83%;
+	left:56%;
+	width: 120px;
+	height: 60px;
+	background-color: red;
+}
+#first-player{
+	position: absolute;
+	top:83%;
+	left:31%;
+	width: 120px;
+	height: 60px;
+	background-color: red;
+}
+#message{
+	position: absolute;
+	top:93%;
+	left:49%;
+	background-color: #000;
+	color:#fff;
+}
+.square{
+	height: 200px;
+	width: 200px;
+	box-sizing:border-box;
+	position: absolute;
+	margin:1%;
+	padding:1%;
+	text-align: center;
+	font-size: 150px;
+	/*margin-top:50px;*/
+}
+.square:hover{
+	background-color: #ccc;
+}
+#square-1{
+	top:0;
+	left:0;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+}
+#square-2{
+	top:0%;
+	left:33%;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+
+}
+#square-3{
+	top:0;
+	left:66%;
+	border-bottom: 2px solid black;
+
+}
+#square-4{
+	top:33%;
+	left:0;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+}
+#square-5{
+	top:33%;
+	left:33%;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+}
+#square-6{
+	top:33%;
+	left:66%;
+	border-bottom: 2px solid black;
+}
+#square-7{
+	top:66%;
+	left:0;
+	border-right: 2px solid black;
+}
+#square-8{
+	top:66%;
+	left:33%;
+	border-right: 2px solid black;
+}
+#square-9{
+	top:66%;
+	left:66%;
+}
