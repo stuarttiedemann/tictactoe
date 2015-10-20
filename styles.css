@@ -2,7 +2,7 @@
 	width: 800px;
 	height:800px;
 	position: relative;
-	background-color: black;
+	background-color: white;
 	padding-top:50px;
 }
 .squares-wrapper{
@@ -20,7 +20,8 @@
 	left:56%;
 	width: 120px;
 	height: 60px;
-	background-color: red;
+	background-color: #ccc;
+	border-radius: 6px;
 }
 #first-player{
 	position: absolute;
@@ -28,14 +29,17 @@
 	left:31%;
 	width: 120px;
 	height: 60px;
-	background-color: red;
+	background-color: #ccc;
+	border-radius: 6px;
 }
 #message{
 	position: absolute;
 	top:93%;
-	left:49%;
-	background-color: #000;
-	color:#fff;
+	left:36%;
+	background-color: #fff;
+	color:#000;
+	font-size: 20px;
+	margin:auto;
 }
 .square{
 	height: 200px;
@@ -46,7 +50,6 @@
 	padding:1%;
 	text-align: center;
 	font-size: 150px;
-	/*margin-top:50px;*/
 }
 .square:hover{
 	background-color: #ccc;
@@ -54,48 +57,47 @@
 #square-1{
 	top:0;
 	left:0;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
+	border-right: 4px solid black;
+	border-bottom: 4px solid black;
 }
 #square-2{
 	top:0%;
 	left:33%;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
-
+	border-right: 4px solid black;
+	border-bottom: 4px solid black;
 }
 #square-3{
 	top:0;
 	left:66%;
-	border-bottom: 2px solid black;
+	border-bottom: 4px solid black;
 
 }
 #square-4{
 	top:33%;
 	left:0;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
+	border-right: 4px solid black;
+	border-bottom: 4px solid black;
 }
 #square-5{
 	top:33%;
 	left:33%;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
+	border-right: 4px solid black;
+	border-bottom: 4px solid black;
 }
 #square-6{
 	top:33%;
 	left:66%;
-	border-bottom: 2px solid black;
+	border-bottom: 4px solid black;
 }
 #square-7{
 	top:66%;
 	left:0;
-	border-right: 2px solid black;
+	border-right: 4px solid black;
 }
 #square-8{
 	top:66%;
 	left:33%;
-	border-right: 2px solid black;
+	border-right: 4px solid black;
 }
 #square-9{
 	top:66%;

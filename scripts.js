@@ -1,14 +1,16 @@
 
-var first = 0;
+var whoGoesFirst = 0;
 var computer;
 var player;
 var tileContents=0;
 var id=0;
-var tileArray=["square-1","square-2","square-3","square-4","square-5","square-6","square-7","square-8","square-9"];
-var tileArray2=(10);
+var tile=0;
+var currentTile =[];
+var board1=["Z","Z","Z","Z","Z","Z","Z","Z","Z",];
+//Determines who the first player will be
 function firstPlayer(){
-	first = Math.floor(Math.random()*10+1);
-	if(first>=6){
+	whoGoesFirst = Math.floor(Math.random()*10+1);
+	if(whoGoesFirst>=6){
 		computer="X";	
 		player="O";
 		document.getElementById("message").innerHTML="The computer is X's and will go first";
@@ -20,95 +22,88 @@ function firstPlayer(){
 		player="X";
 	}
 }
+// Generates a random number to place a tile on the board
+function random(){
+	var randomNumber=Math.floor(Math.random()*9+1);
+	return randomNumber;
+}
+// Initiates the opening move of the game
 function playGame(){
 	if(computer==="X"){
-		var tile= Math.floor(Math.random()*9+1);
+		tile= random();
+		currentTile=(tile);
 		document.getElementById("square-"+tile).innerHTML=computer;
+		currentTile=["square-"+tile+","+computer];
+		board1.splice((tile-1),1,computer);
 	}else{
 		document.getElementById("message").innerHTML="Make the opening move";
-		// console.log("The computer is: "+computer);
-		// console.log("The player is: "+player)
 	}
 }
+// logic ro remaining moves of the game
 function play(obj){
 	id = obj.id;
+	idString=id.slice(-1);
 	tileContents =document.getElementById(id).textContent;
-	// console.log("The value in the clicked square is:"+tileContents);
 	if(tileContents==="X"||tileContents==="O"){
 		document.getElementById(id).disabled=true;
 	}else{
-			document.getElementById(id).innerHTML=player;		
-			var tile= Math.floor(Math.random()*9+1);
-			var isOccupied=document.getElementById("square-"+tile).textContent;
+		document.getElementById(id).innerHTML=player;
+		board1.splice((idString-1),1,(player));		
+		tile= random();
+		var isOccupied=document.getElementById("square-"+tile).textContent;
 		for(i=0;i<10;i++){
 			if((isOccupied==="X")||(isOccupied==="O")){			
-				var tile= Math.floor(Math.random()*9+1);
+				var tile= random();
 				var isOccupied=document.getElementById("square-"+tile).textContent;
+				currentTile="square-"+tile;
 			}
 		}
 		document.getElementById("square-"+tile).innerHTML=computer;
+		board1.splice((tile-1),1,(computer));
 		checkWin();
 	}
 }
+// Function to display that X's won
 function xWins(){
 	document.getElementById("message").innerHTML="X's Win!"
 }
+// Function to display that O's won
 function oWins(){
 	document.getElementById("message").innerHTML="O's Win!"
 }
+// Function to check if we have a winner
 function checkWin(){
-	var xCounter=0;
-	var oCounter=0;	
-	for(i=1;i<4;i++){
-		var temp1 = document.getElementById("square-"+i).textContent;
-		var temp2 = document.getElementById("square-"+i).textContent;
-		console.log("The value of temp1 is: "+temp1);
-		if(temp1==="X"){
-			xCounter++;
-			if(xCounter===3){
-			xWins();
-			}
-		}else if(temp2==="O"){
-			oCounter++;
-			if(oCounter===3){
-				oWins();
-			}
-		}
+	if((board1[0]==="X")&&(board1[3]==="X")&&(board1[6]==="X")){
+		xWins();
+	}else if((board1[0]==="O")&&(board1[3]==="O")&&(board1[6]==="O")){
+		oWins();
+	}else if((board1[1]==="X")&&(board1[4]==="X")&&(board1[7]==="X")){
+		xWins();
+	}else if((board1[1]==="O")&&(board1[4]==="O")&&(board1[7]==="O")){
+		oWins();
+	}else if((board1[2]==="X")&&(board1[5]==="X")&&(board1[8]==="X")){
+		xWins();
+	}else if((board1[2]==="O")&&(board1[5]==="O")&&(board1[8]==="O")){
+		oWins();
+	}else if((board1[0]==="X")&&(board1[1]==="X")&&(board1[2]==="X")){
+		xWins();
+	}else if((board1[0]==="O")&&(board1[1]==="O")&&(board1[2]==="O")){
+		oWins();
+	}else if((board1[3]==="X")&&(board1[4]==="X")&&(board1[5]==="X")){
+		xWins();
+	}else if((board1[3]==="O")&&(board1[4]==="O")&&(board1[5]==="O")){
+		oWins();
+	}else if((board1[6]==="X")&&(board1[7]==="X")&&(board1[8]==="X")){
+		xWins();
+	}else if((board1[6]==="O")&&(board1[7]==="O")&&(board1[8]==="O")){
+		oWins();
+	}else if((board1[0]==="X")&&(board1[4]==="X")&&(board1[8]==="X")){
+		xWins();
+	}else if((board1[0]==="O")&&(board1[4]==="O")&&(board1[8]==="O")){
+		oWins();
+	}else if((board1[6]==="X")&&(board1[4]==="X")&&(board1[2]==="X")){
+		xWins();
+	}else if((board1[6]==="O")&&(board1[4]==="O")&&(board1[2]==="O")){
+		oWins();
 	}
-	var xCounter1=0;
-	var oCounter1=0;	
-	for(i=4;i<6;i++){
-		var temp3 = document.getElementById("square-"+i).textContent;
-		var temp4 = document.getElementById("square-"+i).textContent;	
-		if(temp3==="X"){
-			xCounter++;
-			if(xCounter===3){
-			xWins();
-			}
-		}else if(temp4==="O"){
-			oCounter++;
-			if(oCounter===3){
-				oWins();
-			}
-		}
-	}
-	var xCounter2=0;
-	var oCounter2=0;	
-	for(i=4;i<6;i++){
-		var temp5 = document.getElementById("square-"+i).textContent;
-		var temp6 = document.getElementById("square-"+i).textContent;	
-		if(temp5==="X"){
-			xCounter++;
-			if(xCounter===3){
-			xWins();
-			}
-		}else if(temp6==="O"){
-			oCounter++;
-			if(oCounter===3){
-				oWins();
-			}
-		}
-	}
-	
-		
 }
